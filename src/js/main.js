@@ -7,5 +7,6 @@ window.addEventListener('DOMContentLoaded', () => {
   const slider = new Slider('.page', '.next');
   slider.render();
 
-  const player = new Player('.play__circle', ".overlay");
+  const player = new Player('.play', ".overlay");
+  player.initPlayer(); 
 });
