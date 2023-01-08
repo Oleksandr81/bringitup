@@ -1,12 +1,8 @@
-export default class Slider {
+import Slider from "./slider"; 
+
+export default class MainSlider extends Slider {
   constructor(page, btns) {
-    this.page = document.querySelector(page);
-    this.slides = this.page.children;
-    this.btns = document.querySelectorAll(btns);
-    this.links = this.page.querySelectorAll('a');
-    this.slideIndex = 1;
-    this.block = document.querySelectorAll('.hanson');
-    this.time = 3000;
+    super(page, btns);
   }
 
   showSlide(n) {
@@ -34,6 +30,8 @@ export default class Slider {
   }
 
   render() {
+    this.links = this.container.querySelectorAll('#logo');
+    
     this.btns.forEach(btn => {
       btn.addEventListener('click', () => {
         this.plusSlide(1);
@@ -44,9 +42,8 @@ export default class Slider {
 
     this.links.forEach(link => {
       link.addEventListener('click', (e) => {
-        e.preventDefault();
-
         if (link.id === 'logo') {
+          e.preventDefault();
           this.slideIndex = 1;
           this.showSlide(this.slideIndex);
         }
